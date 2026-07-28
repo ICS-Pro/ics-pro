@@ -3,7 +3,7 @@ import { WhatsappIcon } from '@/components/brand-icons'
 export function WhatsappButton() {
   return (
     <a
-      href="https://wa.me/9647690104338"
+      href="https://wa.me/9647890104338"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with ICS Pro on WhatsApp"
