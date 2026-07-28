@@ -9,7 +9,7 @@ const pillars = [
 ]
 
 const socials = [
-  { icon: MessageCircle, href: 'https://wa.me/9647690104338', label: 'WhatsApp' },
+  { icon: MessageCircle, href: 'https://wa.me/9647890104338', label: 'WhatsApp' },
   { icon: Mail, href: 'mailto:ics-pro@outlook.com', label: 'Email' },
   { icon: FacebookIcon, href: 'https://www.facebook.com/', label: 'Facebook' },
   { icon: LinkedinIcon, href: 'https://www.linkedin.com/', label: 'LinkedIn' },
@@ -79,7 +79,7 @@ export function SiteFooter() {
             </h3>
             <div className="mt-5 flex flex-col gap-3 text-sm text-navy-foreground/80">
               <a href="https://wa.me/9647690104338" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#3884ff]">
-                +964 769 010 4338
+                +964 789 010 4338
               </a>
               <a href="mailto:ics-pro@outlook.com" className="transition-colors hover:text-[#3884ff]">
                 ics-pro@outlook.com

@@ -21,7 +21,7 @@ const jsonLd = {
   alternateName: 'ICS Pro | IT & Computer Solutions',
   description,
   url: siteUrl,
-  telephone: '+964 769 010 4338',
+  telephone: '+964 789 010 4338',
   email: 'ics-pro@outlook.com',
   areaServed: 'IQ',
   priceRange: '$$',

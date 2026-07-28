@@ -6,14 +6,14 @@ const channels = [
   {
     icon: MessageCircle,
     label: 'WHATSAPP',
-    value: '+964 769 010 4338',
-    href: 'https://wa.me/9647690104338',
+    value: '+964 789 010 4338',
+    href: 'https://wa.me/9647890104338',
     color: '#25D366',
   },
   {
     icon: Phone,
     label: 'PHONE',
-    value: '+964 769 010 4338',
+    value: '+964 789 010 4338',
     href: 'tel:+9647690104338',
     color: '#1a3f7a',
   },
