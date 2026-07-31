@@ -82,7 +82,7 @@ export function Hero() {
           {/* RIGHT SIDE */}
           <Reveal delay={150} className="relative">
 
-            <span className="glass-dark mb-6 ml-45 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold tracking-wide text-white/90">
+            <span className="glass-dark mb-6 ml-45 inline-flex min-w-[220px] items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold tracking-wide text-white/90 sm:min-w-0">
               <span className="h-2 w-2 rounded-full bg-[#4ade80]" />
               IT &amp; Computer Solutions
             </span>
