@@ -32,8 +32,8 @@ export function SiteHeader() {
           : 'bg-transparent',
       )}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <a href="#top" aria-label="ICS Pro home">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
+        <a href="#top" aria-label="ICS Pro home" className="-mt-4 block leading-none">
           <IcsLogo className="scale-[0.8] origin-left sm:scale-90" light={!scrolled} />
         </a>
 

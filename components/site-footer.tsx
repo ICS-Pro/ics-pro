@@ -78,7 +78,7 @@ export function SiteFooter() {
               Contact
             </h3>
             <div className="mt-5 flex flex-col gap-3 text-sm text-navy-foreground/80">
-              <a href="https://wa.me/9647690104338" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#3884ff]">
+              <a href="https://wa.me/9647890104338" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-[#3884ff]">
                 +964 789 010 4338
               </a>
               <a href="mailto:ics-pro@outlook.com" className="transition-colors hover:text-[#3884ff]">

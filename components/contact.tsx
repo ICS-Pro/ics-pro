@@ -14,7 +14,7 @@ const channels = [
     icon: Phone,
     label: 'PHONE',
     value: '+964 789 010 4338',
-    href: 'tel:+9647690104338',
+    href: 'tel:+9647890104338',
     color: '#1a3f7a',
   },
   {
