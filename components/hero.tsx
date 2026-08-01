@@ -53,26 +53,24 @@ export function Hero() {
     Small &amp; Medium Businesses
   </span>
 </h1>
-
-
-            <div className="mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent" />
+<div className="mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent" />
 
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
               Fast, Secure, and Professional IT Support for Small &amp; Medium
               Businesses and Home Users.
             </p>
 
-            <div className="mt-9 flex flex-wrap gap-4">
+            <div className="mt-9 grid grid-cols-1 gap-4 sm:flex sm:flex-wrap">
               <a
                 href="#contact"
-                className="btn-gradient rounded-full px-8 py-3.5 text-sm font-semibold text-white"
+                className="btn-gradient w-full rounded-full px-8 py-3.5 text-center text-sm font-semibold text-white sm:w-auto"
               >
                 Get IT Support
               </a>
 
               <a
                 href="#services"
-                className="rounded-full border border-white/25 bg-white/5 px-8 py-3.5 text-sm font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/10"
+                className="w-full rounded-full border border-white/25 bg-white/5 px-8 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/10 sm:w-auto"
               >
                 Our Services
               </a>
@@ -82,12 +80,12 @@ export function Hero() {
           {/* RIGHT SIDE */}
           <Reveal delay={150} className="relative">
 
-            <span className="glass-dark mb-6 ml-45 inline-flex min-w-[220px] items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold tracking-wide text-white/90 sm:min-w-0">
+            <span className="glass-dark mx-auto mb-6 flex w-fit items-center gap-2 whitespace-nowrap rounded-full px-5 py-2 text-xs font-semibold tracking-wide text-white/90 lg:ml-45 lg:mr-0">
               <span className="h-2 w-2 rounded-full bg-[#4ade80]" />
               IT &amp; Computer Solutions
             </span>
 
-            <div className="animate-float relative overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/40 ring-1 ring-white/10">
+            <div className="animate-float relative w-full min-w-0 overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/40 ring-1 ring-white/10">
               {/* Original flyer photo, cropped to the top-right remote-support scene */}
               <div className="relative aspect-[1.74/1] overflow-hidden">
                 <img
