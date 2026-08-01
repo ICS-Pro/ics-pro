@@ -28,14 +28,14 @@ const channels = [
     icon: FacebookIcon,
     label: 'FACEBOOK',
     value: 'ICS Pro',
-    href: 'https://www.facebook.com/',
+    href: 'https://www.facebook.com/icspro.solutions/',
     color: '#1877F2',
   },
   {
     icon: LinkedinIcon,
     label: 'LINKEDIN',
     value: 'ICS Pro',
-    href: 'https://www.linkedin.com/',
+    href: 'https://www.linkedin.com/company/ics-pro/',
     color: '#0A66C2',
   },
 ]
