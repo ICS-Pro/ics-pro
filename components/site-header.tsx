@@ -52,11 +52,10 @@ export function SiteHeader() {
             Get Support
           </a>
         </nav>
-
         <button
           type="button"
           className={cn(
-            'inline-flex items-center justify-center rounded-md p-2 transition-colors md:hidden',
+            'absolute right-4 top-4 inline-flex items-center justify-center rounded-md p-2 transition-colors md:hidden',
             scrolled ? 'text-foreground' : 'text-white',
           )}
           onClick={() => setOpen((v) => !v)}
