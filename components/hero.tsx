@@ -25,17 +25,17 @@ export function Hero() {
       id="top"
       className="bg-hero-gradient relative overflow-hidden pt-28 pb-20 sm:pt-36 lg:pt-40 lg:pb-28"
     >
-            {/* animated glow blobs - temporarily hidden for mobile overflow test */}
-      <div
-        aria-hidden="true"
-        className="hidden"
-      />
+           {/* animated glow blobs */}
+<div
+  aria-hidden="true"
+  className="animate-blob pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#3884ff]/25 blur-3xl"
+/>
 
-      <div
-        aria-hidden="true"
-        className="hidden"
-        style={{ animationDelay: '3s' }}
-      />
+<div
+  aria-hidden="true"
+  className="animate-blob pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-[#1e6fe0]/20 blur-3xl"
+  style={{ animationDelay: '3s' }}
+/>
 
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
