@@ -43,7 +43,7 @@ export function Hero() {
 
           {/* LEFT SIDE */}
           <Reveal>
-       <h1 className="mt-6 text-[35px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
+       <h1 className="mt-6 text-[34.5px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
   Remote &amp; On-Site
   <br />
   IT Support{' '}
