@@ -56,12 +56,12 @@ export function Services() {
         </Reveal>
         
 <Reveal className="mx-auto mt-10 max-w-4xl text-center">
-  <p className="text-base leading-relaxed text-foreground/75 sm:text-lg">
+  <p className="text-base font-medium leading-relaxed text-foreground/75 sm:text-lg">
     ICS Pro provides professional remote and on-site IT support services for
     small and medium-sized businesses, organizations, and individuals.
   </p>
 
-  <p className="mt-4 text-base leading-relaxed text-foreground/75 sm:text-lg">
+  <p className="mt-4 text-base font-medium leading-relaxed text-foreground/75 sm:text-lg">
     We help our clients minimize downtime by resolving technical issues quickly
     through secure remote support and on-site IT services. Our goal is to
     deliver reliable, cost-effective IT solutions that reduce the need for
