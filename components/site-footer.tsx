@@ -11,8 +11,8 @@ const pillars = [
 const socials = [
   { icon: MessageCircle, href: 'https://wa.me/9647890104338', label: 'WhatsApp' },
   { icon: Mail, href: 'mailto:ics-pro@outlook.com', label: 'Email' },
-  { icon: FacebookIcon, href: 'https://www.facebook.com/', label: 'Facebook' },
-  { icon: LinkedinIcon, href: 'https://www.linkedin.com/', label: 'LinkedIn' },
+  { icon: FacebookIcon, href: 'https://www.facebook.com/icspro.solutions/', label: 'Facebook' },
+  { icon: LinkedinIcon, href: 'https://www.linkedin.com/company/ics-pro/', label: 'LinkedIn' },
   { icon: Globe, href: 'https://www.icspro.cloud', label: 'Website' },
 ]
 
