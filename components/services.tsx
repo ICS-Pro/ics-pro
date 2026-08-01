@@ -54,7 +54,21 @@ export function Services() {
           </h2>
           <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-gradient-to-r from-brand to-brand-dark" />
         </Reveal>
+        
+<Reveal className="mx-auto mt-10 max-w-4xl text-center">
+  <p className="text-base leading-relaxed text-foreground/75 sm:text-lg">
+    ICS Pro provides professional remote and on-site IT support services for
+    small and medium-sized businesses, organizations, and individuals.
+  </p>
 
+  <p className="mt-4 text-base leading-relaxed text-foreground/75 sm:text-lg">
+    We help our clients minimize downtime by resolving technical issues quickly
+    through secure remote support and on-site IT services. Our goal is to
+    deliver reliable, cost-effective IT solutions that reduce the need for
+    dedicated full-time IT staff and eliminate the inconvenience of
+    transporting equipment to service centers.
+  </p>
+</Reveal>
         <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {services.map((service, i) => (
             <Reveal
