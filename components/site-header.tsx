@@ -24,14 +24,7 @@ export function SiteHeader() {
   }, [])
 
   return (
-    <header
-      className={cn(
-        'absolute inset-x-0 top-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'border-b border-white/40 bg-background/80 shadow-[0_8px_30px_-12px_rgba(20,40,80,0.25)] backdrop-blur-xl'
-          : 'bg-transparent',
-      )}
-    >
+    <header className="absolute inset-x-0 top-0 z-50 bg-transparent">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
         <a href="#top" aria-label="ICS Pro home" className="-mt-4 block leading-none">
           <IcsLogo className="scale-[0.8] origin-left sm:scale-90" light={!scrolled} />
