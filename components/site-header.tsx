@@ -21,6 +21,7 @@ export function SiteHeader() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
+
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
 
@@ -34,6 +35,8 @@ export function SiteHeader() {
   return (
     <header className="absolute left-0 top-0 z-50 w-full max-w-full bg-transparent">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
+
+        {/* Logo */}
         <a
           href="#top"
           aria-label="ICS Pro home"
@@ -69,6 +72,7 @@ export function SiteHeader() {
             {t.nav.getSupport}
           </a>
 
+          {/* Desktop language selector */}
           <div
             className={cn(
               'flex items-center rounded-full border p-1 text-xs font-semibold',
@@ -108,8 +112,11 @@ export function SiteHeader() {
         </nav>
 
         {/* Mobile controls */}
-        <div className="absolute right-4 top-4 flex items-center gap-2 md:hidden">
-          {/* Menu button */}
+        <div
+          dir="ltr"
+          className="absolute right-4 top-4 flex items-center gap-2 md:hidden"
+        >
+          {/* Mobile menu button */}
           <button
             type="button"
             className={cn(
@@ -120,10 +127,14 @@ export function SiteHeader() {
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
 
-          {/* Language button */}
+          {/* Mobile language button */}
           <button
             type="button"
             onClick={toggleMobileLanguage}
@@ -148,6 +159,7 @@ export function SiteHeader() {
       {open && (
         <nav className="border-t border-border bg-background md:hidden">
           <div className="flex flex-col px-4 py-3 sm:px-6">
+
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -166,6 +178,7 @@ export function SiteHeader() {
             >
               {t.nav.getSupport}
             </a>
+
           </div>
         </nav>
       )}
