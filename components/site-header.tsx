@@ -4,33 +4,44 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { IcsLogo } from '@/components/ics-logo'
 import { cn } from '@/lib/utils'
-
-const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'Why ICS Pro', href: '#why' },
-  { label: 'Remote Support', href: '#remote' },
-  { label: 'Contact', href: '#contact' },
-]
+import { useLanguage } from '@/lib/language-context'
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
 
+  const { language, setLanguage, t } = useLanguage()
+
+  const navLinks = [
+    { label: t.nav.services, href: '#services' },
+    { label: t.nav.whyIcsPro, href: '#why' },
+    { label: t.nav.remoteSupport, href: '#remote' },
+    { label: t.nav.contact, href: '#contact' },
+  ]
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
     onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
+
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
     <header className="absolute left-0 top-0 z-50 w-full max-w-full bg-transparent">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
-        <a href="#top" aria-label="ICS Pro home" className="-mt-4 block leading-none">
-          <IcsLogo className="scale-[0.8] origin-left sm:scale-90" light={!scrolled} />
+        <a
+          href="#top"
+          aria-label="ICS Pro home"
+          className="-mt-4 block leading-none"
+        >
+          <IcsLogo
+            className="scale-[0.8] origin-left sm:scale-90"
+            light={!scrolled}
+          />
         </a>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -45,13 +56,52 @@ export function SiteHeader() {
               {link.label}
             </a>
           ))}
+
           <a
             href="#contact"
             className="btn-gradient rounded-full px-6 py-2.5 text-sm font-semibold text-white"
           >
-            Get Support
+            {t.nav.getSupport}
           </a>
+
+          <div
+            className={cn(
+              'flex items-center rounded-full border p-1 text-xs font-semibold',
+              scrolled
+                ? 'border-border bg-background/80 text-foreground'
+                : 'border-white/25 bg-white/10 text-white',
+            )}
+          >
+            <button
+              type="button"
+              onClick={() => setLanguage('en')}
+              className={cn(
+                'rounded-full px-3 py-1.5 transition-all',
+                language === 'en'
+                  ? 'bg-brand text-white shadow-sm'
+                  : 'opacity-70 hover:opacity-100',
+              )}
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setLanguage('ar')}
+              className={cn(
+                'rounded-full px-3 py-1.5 transition-all',
+                language === 'ar'
+                  ? 'bg-brand text-white shadow-sm'
+                  : 'opacity-70 hover:opacity-100',
+              )}
+              aria-label="التبديل إلى العربية"
+            >
+              عربي
+            </button>
+          </div>
         </nav>
+
         <button
           type="button"
           className={cn(
@@ -79,13 +129,48 @@ export function SiteHeader() {
                 {link.label}
               </a>
             ))}
+
             <a
               href="#contact"
               onClick={() => setOpen(false)}
               className="btn-gradient mt-2 rounded-full px-5 py-3 text-center text-sm font-semibold text-white"
             >
-              Get Support
+              {t.nav.getSupport}
             </a>
+
+            <div className="mt-4 flex items-center justify-center gap-2 border-t border-border pt-4">
+              <button
+                type="button"
+                onClick={() => {
+                  setLanguage('en')
+                  setOpen(false)
+                }}
+                className={cn(
+                  'rounded-full border px-5 py-2 text-sm font-semibold transition-all',
+                  language === 'en'
+                    ? 'border-brand bg-brand text-white'
+                    : 'border-border text-foreground/70',
+                )}
+              >
+                English
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setLanguage('ar')
+                  setOpen(false)
+                }}
+                className={cn(
+                  'rounded-full border px-5 py-2 text-sm font-semibold transition-all',
+                  language === 'ar'
+                    ? 'border-brand bg-brand text-white'
+                    : 'border-border text-foreground/70',
+                )}
+              >
+                العربية
+              </button>
+            </div>
           </div>
         </nav>
       )}

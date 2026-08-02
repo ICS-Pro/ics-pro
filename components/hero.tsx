@@ -1,65 +1,77 @@
+'use client'
+
 import { Headset, ShieldCheck, Clock } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-
-const badges = [
-  {
-    icon: Headset,
-    title: 'PROFESSIONAL\nIT SUPPORT',
-    text: 'You can count on ICS Pro.',
-  },
-  {
-    icon: ShieldCheck,
-    title: 'FAST & SECURE\nRELIABLE',
-    text: 'Your satisfaction is our priority.',
-  },
-  {
-    icon: Clock,
-    title: 'QUICK RESPONSE\nALWAYS HERE',
-    text: "We're ready to help when you need us.",
-  },
-]
+import { useLanguage } from '@/lib/language-context'
 
 export function Hero() {
+  const { language, t } = useLanguage()
+
+  const badges = [
+    {
+      icon: Headset,
+      title: t.hero.badges.professional.title,
+      text: t.hero.badges.professional.text,
+    },
+    {
+      icon: ShieldCheck,
+      title: t.hero.badges.secure.title,
+      text: t.hero.badges.secure.text,
+    },
+    {
+      icon: Clock,
+      title: t.hero.badges.response.title,
+      text: t.hero.badges.response.text,
+    },
+  ]
+
   return (
     <section
       id="top"
       className="bg-hero-gradient relative overflow-hidden pt-28 pb-20 sm:pt-36 lg:pt-40 lg:pb-28"
     >
-           {/* animated glow blobs */}
-<div
-  aria-hidden="true"
-  className="animate-blob pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#3884ff]/25 blur-3xl"
-/>
+      {/* animated glow blobs */}
+      <div
+        aria-hidden="true"
+        className="animate-blob pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-[#3884ff]/25 blur-3xl"
+      />
 
-<div
-  aria-hidden="true"
-  className="animate-blob pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-[#1e6fe0]/20 blur-3xl"
-  style={{ animationDelay: '3s' }}
-/>
-
+      <div
+        aria-hidden="true"
+        className="animate-blob pointer-events-none absolute -bottom-32 -left-24 h-96 w-96 rounded-full bg-[#1e6fe0]/20 blur-3xl"
+        style={{ animationDelay: '3s' }}
+      />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 pt-40 lg:grid-cols-2 lg:gap-16">
-
           {/* LEFT SIDE */}
           <Reveal>
-       <h1 className="mt-6 text-[34.5px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl">
-  Remote &amp; On-Site
-  <br />
-  IT Support{' '}
-  <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
-    for
-  </span>
-  <br />
-  <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
-    Small &amp; Medium Businesses
-  </span>
-</h1>
-<div className="mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent" />
+            <h1
+              className="mt-6 text-[34.5px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
+              dir={language === 'ar' ? 'rtl' : 'ltr'}
+            >
+              {t.hero.title1}
+              <br />
+              {t.hero.title2}{' '}
+              {language === 'en' && (
+                <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
+                  for
+                </span>
+              )}
+              <br />
+              <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
+                {t.hero.title3}
+              </span>
+            </h1>
+
+            <div
+              className={`mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent ${
+                language === 'ar' ? 'mr-0 ml-auto' : ''
+              }`}
+            />
 
             <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
-              Fast, Secure, and Professional IT Support for Small &amp; Medium
-              Businesses and Home Users.
+              {t.hero.description}
             </p>
 
             <div className="mt-9 grid grid-cols-1 gap-4 sm:flex sm:flex-wrap">
@@ -67,24 +79,23 @@ export function Hero() {
                 href="#contact"
                 className="btn-gradient w-full rounded-full px-8 py-3.5 text-center text-sm font-semibold text-white sm:w-auto"
               >
-                Get IT Support
+                {t.hero.getSupport}
               </a>
 
               <a
                 href="#services"
                 className="w-full rounded-full border border-white/25 bg-white/5 px-8 py-3.5 text-center text-sm font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/10 sm:w-auto"
               >
-                Our Services
+                {t.hero.ourServices}
               </a>
             </div>
           </Reveal>
 
           {/* RIGHT SIDE */}
           <Reveal delay={150} className="relative">
-
             <span className="glass-dark mx-auto mb-6 flex w-fit items-center gap-2 whitespace-nowrap rounded-full px-5 py-2 text-xs font-semibold tracking-wide text-white/90 lg:ml-45 lg:mr-0">
               <span className="h-2 w-2 rounded-full bg-[#4ade80]" />
-              IT &amp; Computer Solutions
+              {t.hero.tagline}
             </span>
 
             <div className="animate-float relative w-full min-w-0 overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/40 ring-1 ring-white/10">
@@ -122,7 +133,9 @@ export function Hero() {
                 {badge.title}
               </h3>
 
-              <p className="mt-2 text-sm text-white/70">{badge.text}</p>
+              <p className="mt-2 text-sm text-white/70">
+                {badge.text}
+              </p>
             </Reveal>
           ))}
         </div>

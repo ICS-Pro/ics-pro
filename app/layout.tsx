@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Poppins } from 'next/font/google'
+import { LanguageProvider } from '@/lib/language-context'
 import './globals.css'
 
 const poppins = Poppins({
@@ -105,7 +106,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        {children}
+
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
+
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
