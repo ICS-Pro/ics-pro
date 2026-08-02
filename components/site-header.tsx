@@ -116,24 +116,6 @@ export function SiteHeader() {
           dir="ltr"
           className="absolute right-4 top-4 flex items-center gap-2 md:hidden"
         >
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            className={cn(
-              'inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors',
-              scrolled ? 'text-foreground' : 'text-white',
-            )}
-            onClick={() => setOpen((v) => !v)}
-            aria-label={open ? 'Close menu' : 'Open menu'}
-            aria-expanded={open}
-          >
-            {open ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
-
           {/* Mobile language button */}
           <button
             type="button"
@@ -151,6 +133,24 @@ export function SiteHeader() {
             }
           >
             {language === 'en' ? 'عربي' : 'EN'}
+          </button>
+
+          {/* Mobile menu button */}
+          <button
+            type="button"
+            className={cn(
+              'inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors',
+              scrolled ? 'text-foreground' : 'text-white',
+            )}
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+          >
+            {open ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
       </div>
