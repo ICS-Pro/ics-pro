@@ -27,6 +27,10 @@ export function SiteHeader() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const toggleMobileLanguage = () => {
+    setLanguage(language === 'en' ? 'ar' : 'en')
+  }
+
   return (
     <header className="absolute left-0 top-0 z-50 w-full max-w-full bg-transparent">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
@@ -41,6 +45,7 @@ export function SiteHeader() {
           />
         </a>
 
+        {/* Desktop navigation */}
         <nav className="hidden items-center gap-6 md:flex">
           {navLinks.map((link) => (
             <a
@@ -102,20 +107,44 @@ export function SiteHeader() {
           </div>
         </nav>
 
-        <button
-          type="button"
-          className={cn(
-            'absolute right-4 top-4 inline-flex items-center justify-center rounded-md p-2 transition-colors md:hidden',
-            scrolled ? 'text-foreground' : 'text-white',
-          )}
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? 'Close menu' : 'Open menu'}
-          aria-expanded={open}
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile controls */}
+        <div className="absolute right-4 top-4 flex items-center gap-2 md:hidden">
+          {/* Menu button */}
+          <button
+            type="button"
+            className={cn(
+              'inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors',
+              scrolled ? 'text-foreground' : 'text-white',
+            )}
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+
+          {/* Language button */}
+          <button
+            type="button"
+            onClick={toggleMobileLanguage}
+            className={cn(
+              'inline-flex h-10 min-w-[52px] items-center justify-center rounded-full border px-3 text-sm font-semibold transition-all',
+              scrolled
+                ? 'border-border bg-background/90 text-foreground'
+                : 'border-white/25 bg-white/10 text-white backdrop-blur-sm',
+            )}
+            aria-label={
+              language === 'en'
+                ? 'التبديل إلى العربية'
+                : 'Switch to English'
+            }
+          >
+            {language === 'en' ? 'عربي' : 'EN'}
+          </button>
+        </div>
       </div>
 
+      {/* Mobile menu */}
       {open && (
         <nav className="border-t border-border bg-background md:hidden">
           <div className="flex flex-col px-4 py-3 sm:px-6">
@@ -137,40 +166,6 @@ export function SiteHeader() {
             >
               {t.nav.getSupport}
             </a>
-
-            <div className="mt-4 flex items-center justify-center gap-2 border-t border-border pt-4">
-              <button
-                type="button"
-                onClick={() => {
-                  setLanguage('en')
-                  setOpen(false)
-                }}
-                className={cn(
-                  'rounded-full border px-5 py-2 text-sm font-semibold transition-all',
-                  language === 'en'
-                    ? 'border-brand bg-brand text-white'
-                    : 'border-border text-foreground/70',
-                )}
-              >
-                English
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setLanguage('ar')
-                  setOpen(false)
-                }}
-                className={cn(
-                  'rounded-full border px-5 py-2 text-sm font-semibold transition-all',
-                  language === 'ar'
-                    ? 'border-brand bg-brand text-white'
-                    : 'border-border text-foreground/70',
-                )}
-              >
-                العربية
-              </button>
-            </div>
           </div>
         </nav>
       )}
