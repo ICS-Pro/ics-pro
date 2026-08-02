@@ -46,19 +46,43 @@ export function Hero() {
         <div className="grid items-center gap-12 pt-40 lg:grid-cols-2 lg:gap-16">
           {/* LEFT SIDE */}
           <Reveal>
+
+            {/* Arabic title - MOBILE ONLY */}
+            {language === 'ar' && (
+              <h1
+                dir="rtl"
+                className="mt-6 block text-[27px] font-extrabold leading-[1.45] tracking-tight sm:hidden"
+              >
+                <span className="block whitespace-nowrap text-white">
+                  دعم تقني عن بُعد - وفي الموقع
+                </span>
+
+                <span className="block whitespace-nowrap bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
+                  للشركات الصغيرة والمتوسطة
+                </span>
+              </h1>
+            )}
+
+            {/* English mobile + English/Arabic desktop */}
             <h1
-              className="mt-6 text-[34.5px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
+              className={`mt-6 text-[34.5px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl ${
+                language === 'ar' ? 'hidden sm:block' : ''
+              }`}
               dir={language === 'ar' ? 'rtl' : 'ltr'}
             >
               {t.hero.title1}
               <br />
+
               {t.hero.title2}{' '}
+
               {language === 'en' && (
                 <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
                   for
                 </span>
               )}
+
               <br />
+
               <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
                 {t.hero.title3}
               </span>
@@ -99,7 +123,6 @@ export function Hero() {
             </span>
 
             <div className="animate-float relative w-full min-w-0 overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/40 ring-1 ring-white/10">
-              {/* Original flyer photo, cropped to the top-right remote-support scene */}
               <div className="relative aspect-[1.74/1] overflow-hidden">
                 <img
                   src="/images/ics-flyer.png"
