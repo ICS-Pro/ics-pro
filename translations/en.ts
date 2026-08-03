@@ -9,7 +9,7 @@ export const en = {
 
   hero: {
     title1: 'Remote & On-Site',
-    title2: 'IT Support for',
+    title2: 'IT Support',
     title3: 'Small & Medium Businesses',
     description:
       'Fast, Secure, and Professional IT Support for Small & Medium Businesses and Home Users.',
