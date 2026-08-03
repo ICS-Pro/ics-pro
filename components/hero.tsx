@@ -91,11 +91,11 @@ export function Hero() {
                 dir="rtl"
                 className="mt-6 hidden font-extrabold leading-[1.3] tracking-tight sm:block"
               >
-                <span className="block whitespace-nowrap text-[34px] text-white md:text-[38px] lg:text-[40px] xl:text-[44px]">
+                <span className="block whitespace-nowrap text-[38px] text-white md:text-[42px] lg:text-[44px] xl:text-[48px]">
                   دعم تقني عن بُعد - وفي الموقع
                 </span>
 
-                <span className="mt-2 block whitespace-nowrap bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-[34px] text-transparent md:text-[38px] lg:text-[40px] xl:text-[44px]">
+                <span className="mt-2 block whitespace-nowrap bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-[36px] text-transparent md:text-[40px] lg:text-[42px] xl:text-[46px]">
                   للشركات الصغيرة والمتوسطة
                 </span>
               </h1>
