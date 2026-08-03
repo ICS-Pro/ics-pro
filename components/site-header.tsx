@@ -28,10 +28,6 @@ export function SiteHeader() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const toggleMobileLanguage = () => {
-    setLanguage(language === 'en' ? 'ar' : 'en')
-  }
-
   return (
     <header className="absolute left-0 top-0 z-50 w-full max-w-full bg-transparent">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-0 sm:px-6 lg:px-8">
@@ -74,6 +70,7 @@ export function SiteHeader() {
 
           {/* Desktop language selector */}
           <div
+            dir="ltr"
             className={cn(
               'flex items-center rounded-full border p-1 text-xs font-semibold',
               scrolled
@@ -92,8 +89,10 @@ export function SiteHeader() {
               )}
               aria-label="Switch to English"
             >
-              EN
+              English
             </button>
+
+            <span className="opacity-40">|</span>
 
             <button
               type="button"
@@ -106,7 +105,23 @@ export function SiteHeader() {
               )}
               aria-label="التبديل إلى العربية"
             >
-              عربي
+              العربية
+            </button>
+
+            <span className="opacity-40">|</span>
+
+            <button
+              type="button"
+              onClick={() => setLanguage('ku')}
+              className={cn(
+                'rounded-full px-3 py-1.5 transition-all',
+                language === 'ku'
+                  ? 'bg-brand text-white shadow-sm'
+                  : 'opacity-70 hover:opacity-100',
+              )}
+              aria-label="گۆڕینی زمان بۆ کوردی"
+            >
+              کوردی
             </button>
           </div>
         </nav>
@@ -116,25 +131,6 @@ export function SiteHeader() {
           dir="ltr"
           className="absolute right-4 top-4 flex items-center gap-2 md:hidden"
         >
-          {/* Mobile language button */}
-          <button
-            type="button"
-            onClick={toggleMobileLanguage}
-            className={cn(
-              'inline-flex h-10 min-w-[52px] items-center justify-center rounded-full border px-3 text-sm font-semibold transition-all',
-              scrolled
-                ? 'border-border bg-background/90 text-foreground'
-                : 'border-white/25 bg-white/10 text-white backdrop-blur-sm',
-            )}
-            aria-label={
-              language === 'en'
-                ? 'التبديل إلى العربية'
-                : 'Switch to English'
-            }
-          >
-            {language === 'en' ? 'عربي' : 'EN'}
-          </button>
-
           {/* Mobile menu button */}
           <button
             type="button"
@@ -178,6 +174,64 @@ export function SiteHeader() {
             >
               {t.nav.getSupport}
             </a>
+
+            {/* Mobile language selector */}
+            <div
+              dir="ltr"
+              className="mt-4 flex items-center justify-center gap-2 border-t border-border pt-4 text-sm font-semibold"
+            >
+              <button
+                type="button"
+                onClick={() => {
+                  setLanguage('en')
+                  setOpen(false)
+                }}
+                className={cn(
+                  'rounded-full px-3 py-2 transition-all',
+                  language === 'en'
+                    ? 'bg-brand text-white'
+                    : 'text-foreground/70 hover:text-brand',
+                )}
+              >
+                English
+              </button>
+
+              <span className="text-foreground/30">|</span>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setLanguage('ar')
+                  setOpen(false)
+                }}
+                className={cn(
+                  'rounded-full px-3 py-2 transition-all',
+                  language === 'ar'
+                    ? 'bg-brand text-white'
+                    : 'text-foreground/70 hover:text-brand',
+                )}
+              >
+                العربية
+              </button>
+
+              <span className="text-foreground/30">|</span>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setLanguage('ku')
+                  setOpen(false)
+                }}
+                className={cn(
+                  'rounded-full px-3 py-2 transition-all',
+                  language === 'ku'
+                    ? 'bg-brand text-white'
+                    : 'text-foreground/70 hover:text-brand',
+                )}
+              >
+                کوردی
+              </button>
+            </div>
 
           </div>
         </nav>

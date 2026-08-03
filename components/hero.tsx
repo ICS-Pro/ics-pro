@@ -12,16 +12,22 @@ export function Hero() {
       icon: Headset,
       title: t.hero.badges.professional.title,
       text: t.hero.badges.professional.text,
+      kuEnglishTitle: 'PROFESSIONAL IT SUPPORT',
+      kuTitle: 'پشتگیری پیشەیی',
     },
     {
       icon: ShieldCheck,
       title: t.hero.badges.secure.title,
       text: t.hero.badges.secure.text,
+      kuEnglishTitle: 'FAST & SECURE\nRELIABLE',
+      kuTitle: 'خێرا و پارێزراو\nو متمانەپێکراو',
     },
     {
       icon: Clock,
       title: t.hero.badges.response.title,
       text: t.hero.badges.response.text,
+      kuEnglishTitle: 'QUICK RESPONSE\nALWAYS HERE',
+      kuTitle: 'وەڵامدانەوەی خێرا\nهەمیشە لەگەڵت',
     },
   ]
 
@@ -101,19 +107,65 @@ export function Hero() {
               </h1>
             )}
 
-            {/* UNDERLINE */}
-            <div
-              className={`mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent ${
-                language === 'ar' ? 'mr-0 ml-auto' : ''
-              }`}
-            />
+            {/* KURDISH TITLE - ALL SCREEN SIZES */}
+            {language === 'ku' && (
+              <h1
+                dir="rtl"
+                className="mt-6 font-extrabold leading-[1.3] tracking-tight"
+              >
+                <span className="block text-[28px] text-white sm:text-[34px] lg:text-[38px] xl:text-[42px]">
+                  {t.hero.title1}
+                </span>
+
+                <div
+                  dir="ltr"
+                  className="mt-4 flex w-full translate-x-16 items-center justify-center gap-5"
+                >
+                  <span className="h-1 w-16 rounded-full bg-gradient-to-r from-transparent to-[#3884ff] sm:w-20" />
+
+                  <span className="shrink-0 text-[30px] font-extrabold text-white sm:text-[38px] lg:text-[42px] xl:text-[46px]">
+                    IT Support
+                  </span>
+
+                  <span className="h-1 w-16 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent sm:w-20" />
+                </div>
+
+                <span className="mt-2 block bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-[28px] text-transparent sm:text-[34px] lg:text-[38px] xl:text-[42px]">
+                  بۆ {t.hero.title3}
+                </span>
+              </h1>
+            )}
+
+            {/* UNDERLINE - ENGLISH & ARABIC ONLY */}
+            {language !== 'ku' && (
+              <div
+                className={`mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent ${
+                  language === 'ar' ? 'mr-0 ml-auto' : ''
+                }`}
+              />
+            )}
 
             {/* DESCRIPTION */}
             <p
-              dir={language === 'ar' ? 'rtl' : 'ltr'}
+              dir={
+                language === 'ar' || language === 'ku'
+                  ? 'rtl'
+                  : 'ltr'
+              }
               className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg"
             >
-              {t.hero.description}
+              {language === 'ku' ? (
+                <>
+                  <bdi dir="ltr">IT Support</bdi>
+                  <span>
+                    {' '}
+                    ـی خێرا، پارێزراو و پیشەیی بۆ بزنسە بچووک و
+                    مامناوەندەکان و بەکارهێنەرانی ماڵەوە.
+                  </span>
+                </>
+              ) : (
+                t.hero.description
+              )}
             </p>
 
             {/* BUTTONS */}
@@ -122,7 +174,14 @@ export function Hero() {
                 href="#contact"
                 className="btn-gradient w-full rounded-full px-8 py-3.5 text-center text-sm font-semibold text-white sm:w-auto"
               >
-                {t.hero.getSupport}
+                {language === 'ku' ? (
+                  <>
+                    <bdi dir="ltr">IT Support</bdi>
+                    <span> وەربگرە</span>
+                  </>
+                ) : (
+                  t.hero.getSupport
+                )}
               </a>
 
               <a
@@ -165,7 +224,7 @@ export function Hero() {
         <div className="mt-16 grid gap-6 sm:grid-cols-3 lg:mt-24">
           {badges.map((badge, i) => (
             <Reveal
-              key={badge.title}
+              key={badge.kuEnglishTitle}
               delay={i * 120}
               className="glass-dark group flex flex-col items-center rounded-2xl p-6 text-center transition-all duration-300 hover:-translate-y-1.5"
             >
@@ -173,11 +232,34 @@ export function Hero() {
                 <badge.icon className="h-8 w-8" />
               </span>
 
-              <h3 className="whitespace-pre-line text-sm font-bold uppercase tracking-wide text-white">
-                {badge.title}
-              </h3>
+              {language === 'ku' ? (
+                <>
+                  {/* ENGLISH HEADING */}
+                  <h3
+                    dir="ltr"
+                    className="whitespace-pre-line text-sm font-bold uppercase leading-relaxed tracking-wide text-white"
+                  >
+                    {badge.kuEnglishTitle}
+                  </h3>
 
-              <p className="mt-2 text-sm text-white/70">
+                  {/* KURDISH TRANSLATION */}
+                  <h4
+                    dir="rtl"
+                    className="mt-2 whitespace-pre-line text-sm font-bold leading-relaxed text-white"
+                  >
+                    {badge.kuTitle}
+                  </h4>
+                </>
+              ) : (
+                <h3 className="whitespace-pre-line text-sm font-bold uppercase tracking-wide text-white">
+                  {badge.title}
+                </h3>
+              )}
+
+              <p
+                dir={language === 'ar' || language === 'ku' ? 'rtl' : 'ltr'}
+                className="mt-3 text-sm leading-relaxed text-white/70"
+              >
                 {badge.text}
               </p>
             </Reveal>

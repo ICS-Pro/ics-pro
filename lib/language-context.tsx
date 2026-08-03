@@ -10,13 +10,13 @@ import {
 
 import { en } from '@/translations/en'
 import { ar } from '@/translations/ar'
+import { ku } from '@/translations/ku'
 
-type Language = 'en' | 'ar'
+type Language = 'en' | 'ar' | 'ku'
 
 type LanguageContextType = {
   language: Language
   setLanguage: (language: Language) => void
-  toggleLanguage: () => void
   t: typeof en
   dir: 'ltr' | 'rtl'
 }
@@ -31,7 +31,11 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const savedLanguage = localStorage.getItem('ics-pro-language')
 
-    if (savedLanguage === 'en' || savedLanguage === 'ar') {
+    if (
+      savedLanguage === 'en' ||
+      savedLanguage === 'ar' ||
+      savedLanguage === 'ku'
+    ) {
       setLanguage(savedLanguage)
     }
   }, [])
@@ -40,22 +44,25 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     localStorage.setItem('ics-pro-language', language)
 
     document.documentElement.lang = language
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr'
+    document.documentElement.dir =
+      language === 'ar' || language === 'ku' ? 'rtl' : 'ltr'
   }, [language])
 
-  const toggleLanguage = () => {
-    setLanguage((current) => (current === 'en' ? 'ar' : 'en'))
-  }
+  const t =
+    language === 'ar'
+      ? ar
+      : language === 'ku'
+        ? ku
+        : en
 
-  const t = language === 'ar' ? ar : en
-  const dir = language === 'ar' ? 'rtl' : 'ltr'
+  const dir =
+    language === 'ar' || language === 'ku' ? 'rtl' : 'ltr'
 
   return (
     <LanguageContext.Provider
       value={{
         language,
         setLanguage,
-        toggleLanguage,
         t,
         dir,
       }}
