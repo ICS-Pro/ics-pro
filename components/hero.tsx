@@ -46,8 +46,30 @@ export function Hero() {
         <div className="grid items-center gap-12 pt-40 lg:grid-cols-2 lg:gap-16">
           {/* LEFT SIDE */}
           <Reveal>
+            {/* ENGLISH TITLE - ALL SCREEN SIZES */}
+            {language === 'en' && (
+              <h1
+                dir="ltr"
+                className="mt-6 text-[34.5px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
+              >
+                {t.hero.title1}
+                <br />
 
-            {/* Arabic title - MOBILE ONLY */}
+                <span>IT Support </span>
+
+                <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
+                  for
+                </span>
+
+                <br />
+
+                <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
+                  {t.hero.title3}
+                </span>
+              </h1>
+            )}
+
+            {/* ARABIC TITLE - MOBILE ONLY */}
             {language === 'ar' && (
               <h1
                 dir="rtl"
@@ -63,41 +85,38 @@ export function Hero() {
               </h1>
             )}
 
-            {/* English mobile + English/Arabic desktop */}
-            <h1
-              className={`mt-6 text-[34.5px] font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl ${
-                language === 'ar' ? 'hidden sm:block' : ''
-              }`}
-              dir={language === 'ar' ? 'rtl' : 'ltr'}
-            >
-              {t.hero.title1}
-              <br />
-
-              {t.hero.title2}{' '}
-
-              {language === 'en' && (
-                <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
-                  for
+            {/* ARABIC TITLE - TABLET / DESKTOP ONLY */}
+            {language === 'ar' && (
+              <h1
+                dir="rtl"
+                className="mt-6 hidden font-extrabold leading-[1.3] tracking-tight sm:block"
+              >
+                <span className="block whitespace-nowrap text-[34px] text-white md:text-[38px] lg:text-[40px] xl:text-[44px]">
+                  دعم تقني عن بُعد - وفي الموقع
                 </span>
-              )}
 
-              <br />
+                <span className="mt-2 block whitespace-nowrap bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-[34px] text-transparent md:text-[38px] lg:text-[40px] xl:text-[44px]">
+                  للشركات الصغيرة والمتوسطة
+                </span>
+              </h1>
+            )}
 
-              <span className="bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-transparent">
-                {t.hero.title3}
-              </span>
-            </h1>
-
+            {/* UNDERLINE */}
             <div
               className={`mt-6 h-1 w-24 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent ${
                 language === 'ar' ? 'mr-0 ml-auto' : ''
               }`}
             />
 
-            <p className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg">
+            {/* DESCRIPTION */}
+            <p
+              dir={language === 'ar' ? 'rtl' : 'ltr'}
+              className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg"
+            >
               {t.hero.description}
             </p>
 
+            {/* BUTTONS */}
             <div className="mt-9 grid grid-cols-1 gap-4 sm:flex sm:flex-wrap">
               <a
                 href="#contact"
@@ -123,6 +142,7 @@ export function Hero() {
             </span>
 
             <div className="animate-float relative w-full min-w-0 overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/40 ring-1 ring-white/10">
+              {/* Original flyer photo, cropped to the top-right remote-support scene */}
               <div className="relative aspect-[1.74/1] overflow-hidden">
                 <img
                   src="/images/ics-flyer.png"
@@ -141,6 +161,7 @@ export function Hero() {
           </Reveal>
         </div>
 
+        {/* BADGES */}
         <div className="mt-16 grid gap-6 sm:grid-cols-3 lg:mt-24">
           {badges.map((badge, i) => (
             <Reveal
