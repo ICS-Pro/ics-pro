@@ -5,17 +5,28 @@ interface IcsLogoProps {
   className?: string
   /** Use light colors for dark backgrounds */
   light?: boolean
+  spin3d?: boolean
 }
 
-export function IcsLogo({ className }: IcsLogoProps) {
+export function IcsLogo({
+  className,
+  spin3d = false,
+}: IcsLogoProps) {
   return (
-  <Image
-    src="/logo.png"
-    alt="ICS Pro"
-    width={320}
-    height={90}
-    className={cn("h-auto w-auto max-w-[320px]", className)}
-    priority
-  />
-)
+    <div
+      className={cn(
+        spin3d && 'animate-logo-spin-3d',
+        className
+      )}
+    >
+      <Image
+        src="/logo.png"
+        alt="ICS Pro"
+        width={320}
+        height={90}
+        className="h-auto w-auto max-w-[320px]"
+        priority
+      />
+    </div>
+  )
 }

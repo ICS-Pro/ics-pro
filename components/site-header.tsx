@@ -41,6 +41,7 @@ export function SiteHeader() {
           <IcsLogo
             className="scale-[0.8] origin-left sm:scale-90"
             light={!scrolled}
+            spin3d
           />
         </a>
 
