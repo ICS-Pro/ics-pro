@@ -50,8 +50,10 @@ export function Hero() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 pt-40 lg:grid-cols-2 lg:gap-16">
+
           {/* LEFT SIDE */}
           <Reveal>
+
             {/* ENGLISH TITLE - ALL SCREEN SIZES */}
             {language === 'en' && (
               <h1
@@ -107,30 +109,33 @@ export function Hero() {
               </h1>
             )}
 
-            {/* KURDISH TITLE - ALL SCREEN SIZES */}
+            {/* KURDISH TITLE - MOBILE + DESKTOP */}
             {language === 'ku' && (
               <h1
                 dir="rtl"
-                className="mt-6 font-extrabold leading-[1.3] tracking-tight"
+                className="mx-auto mt-6 w-full max-w-full text-center font-extrabold leading-[1.3] tracking-tight sm:mx-0 sm:text-right"
               >
-                <span className="block text-[28px] text-white sm:text-[34px] lg:text-[38px] xl:text-[42px]">
+                {/* KURDISH FIRST LINE */}
+                <span className="mx-auto block w-full px-1 text-center text-[27px] leading-[1.5] text-white sm:px-0 sm:text-right sm:text-[34px] sm:leading-[1.3] lg:text-[38px] xl:text-[42px]">
                   {t.hero.title1}
                 </span>
 
+                {/* IT SUPPORT */}
                 <div
                   dir="ltr"
-                  className="mt-4 flex w-full items-center justify-center gap-3 sm:gap-5 lg:translate-x-16"
+                  className="mx-auto mt-4 flex w-full max-w-[390px] items-center justify-center gap-3 sm:mx-0 sm:max-w-none sm:gap-5 lg:translate-x-16"
                 >
-                  <span className="h-1 w-16 rounded-full bg-gradient-to-r from-transparent to-[#3884ff] sm:w-20" />
+                  <span className="h-1 min-w-0 flex-1 rounded-full bg-gradient-to-r from-transparent to-[#3884ff] sm:w-20 sm:flex-none" />
 
                   <span className="shrink-0 text-[30px] font-extrabold text-white sm:text-[38px] lg:text-[42px] xl:text-[46px]">
                     IT Support
                   </span>
 
-                  <span className="h-1 w-16 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent sm:w-20" />
+                  <span className="h-1 min-w-0 flex-1 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent sm:w-20 sm:flex-none" />
                 </div>
 
-                <span className="mt-2 block w-full max-w-full px-1 text-center bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-[23px] leading-[1.5] text-transparent sm:px-0 sm:text-right sm:text-[34px] sm:leading-[1.3] lg:text-[38px] xl:text-[42px]">
+                {/* KURDISH BLUE LINE */}
+                <span className="mx-auto mt-2 block w-full max-w-[390px] px-2 text-center bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-[23px] leading-[1.5] text-transparent sm:mx-0 sm:max-w-none sm:px-0 sm:text-right sm:text-[34px] sm:leading-[1.3] lg:text-[38px] xl:text-[42px]">
                   بۆ {t.hero.title3}
                 </span>
               </h1>
@@ -152,7 +157,11 @@ export function Hero() {
                   ? 'rtl'
                   : 'ltr'
               }
-              className="mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg"
+              className={`mt-6 max-w-xl text-pretty text-base leading-relaxed text-white/75 sm:text-lg ${
+                language === 'ku'
+                  ? 'mx-auto w-full text-center sm:mx-0 sm:text-right'
+                  : ''
+              }`}
             >
               {language === 'ku' ? (
                 <>
@@ -169,7 +178,13 @@ export function Hero() {
             </p>
 
             {/* BUTTONS */}
-            <div className="mt-9 grid grid-cols-1 gap-4 sm:flex sm:flex-wrap">
+            <div
+              className={`mt-9 grid grid-cols-1 gap-4 sm:flex sm:flex-wrap ${
+                language === 'ku'
+                  ? 'mx-auto w-full sm:mx-0'
+                  : ''
+              }`}
+            >
               <a
                 href="#contact"
                 className="btn-gradient w-full rounded-full px-8 py-3.5 text-center text-sm font-semibold text-white sm:w-auto"
@@ -194,14 +209,34 @@ export function Hero() {
           </Reveal>
 
           {/* RIGHT SIDE */}
-          <Reveal delay={150} className="relative">
-            <span className="glass-dark mx-auto mb-6 flex w-fit items-center gap-2 whitespace-nowrap rounded-full px-5 py-2 text-xs font-semibold tracking-wide text-white/90 lg:ml-45 lg:mr-0">
-              <span className="h-2 w-2 rounded-full bg-[#4ade80]" />
+          <Reveal
+            delay={150}
+            className={
+              language === 'ku'
+                ? 'relative mx-auto w-full max-w-full sm:mx-0'
+                : 'relative'
+            }
+          >
+            {/* TAGLINE */}
+            <span
+              className={`glass-dark mb-6 flex w-fit max-w-full items-center gap-2 rounded-full px-5 py-2 text-xs font-semibold tracking-wide text-white/90 ${
+                language === 'ku'
+                  ? 'mx-auto whitespace-normal text-center sm:whitespace-nowrap lg:ml-45 lg:mr-0'
+                  : 'mx-auto whitespace-nowrap lg:ml-45 lg:mr-0'
+              }`}
+            >
+              <span className="h-2 w-2 shrink-0 rounded-full bg-[#4ade80]" />
               {t.hero.tagline}
             </span>
 
-            <div className="animate-float relative w-full min-w-0 overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/40 ring-1 ring-white/10">
-              {/* Original flyer photo, cropped to the top-right remote-support scene */}
+            {/* REMOTE SUPPORT IMAGE */}
+            <div
+              className={`animate-float relative min-w-0 overflow-hidden rounded-3xl border border-white/15 shadow-2xl shadow-black/40 ring-1 ring-white/10 ${
+                language === 'ku'
+                  ? 'mx-auto w-full max-w-full sm:mx-0'
+                  : 'w-full'
+              }`}
+            >
               <div className="relative aspect-[1.74/1] overflow-hidden">
                 <img
                   src="/images/ics-flyer.png"
