@@ -119,7 +119,7 @@ export function Hero() {
 
                 <div
                   dir="ltr"
-                  className="mt-4 flex w-full translate-x-16 items-center justify-center gap-5"
+                  className="mt-4 flex w-full items-center justify-center gap-3 sm:gap-5 lg:translate-x-16"
                 >
                   <span className="h-1 w-16 rounded-full bg-gradient-to-r from-transparent to-[#3884ff] sm:w-20" />
 
