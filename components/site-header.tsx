@@ -129,7 +129,7 @@ export function SiteHeader() {
         {/* Mobile controls */}
         <div
           dir="ltr"
-          className="absolute right-4 top-4 flex items-start gap-2 md:hidden"
+          className="absolute right-4 top-4 flex flex-col-reverse items-end gap-2 md:hidden"
         >
           {/* Mobile language selector */}
           <div
