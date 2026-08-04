@@ -129,60 +129,8 @@ export function SiteHeader() {
         {/* Mobile controls */}
         <div
           dir="ltr"
-          className="absolute right-4 top-4 flex flex-col-reverse items-end gap-2 md:hidden"
+          className="absolute right-4 top-4 flex flex-col items-end md:hidden"
         >
-          {/* Mobile language selector */}
-          <div
-            className={cn(
-              'flex flex-col items-stretch overflow-hidden rounded-xl border p-1 text-center text-[11px] font-semibold leading-none backdrop-blur-sm',
-              scrolled
-                ? 'border-border bg-background/90 text-foreground shadow-sm'
-                : 'border-white/25 bg-white/10 text-white',
-            )}
-          >
-            <button
-              type="button"
-              onClick={() => setLanguage('en')}
-              className={cn(
-                'min-w-[62px] rounded-lg px-2 py-1.5 transition-all',
-                language === 'en'
-                  ? 'bg-brand text-white shadow-sm'
-                  : 'opacity-75 hover:opacity-100',
-              )}
-              aria-label="Switch to English"
-            >
-              English
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setLanguage('ar')}
-              className={cn(
-                'min-w-[62px] rounded-lg px-2 py-1.5 transition-all',
-                language === 'ar'
-                  ? 'bg-brand text-white shadow-sm'
-                  : 'opacity-75 hover:opacity-100',
-              )}
-              aria-label="التبديل إلى العربية"
-            >
-              العربية
-            </button>
-
-            <button
-              type="button"
-              onClick={() => setLanguage('ku')}
-              className={cn(
-                'min-w-[62px] rounded-lg px-2 py-1.5 transition-all',
-                language === 'ku'
-                  ? 'bg-brand text-white shadow-sm'
-                  : 'opacity-75 hover:opacity-100',
-              )}
-              aria-label="گۆڕینی زمان بۆ کوردی"
-            >
-              کوردی
-            </button>
-          </div>
-
           {/* Mobile menu button */}
           <button
             type="button"
@@ -200,6 +148,57 @@ export function SiteHeader() {
               <Menu className="h-6 w-6" />
             )}
           </button>
+
+          {/* Mobile language selector */}
+          <div className="mr-[1px] -mt-1 flex w-10 flex-col items-center text-center text-[11px] font-semibold leading-tight">
+            <button
+              type="button"
+              onClick={() => setLanguage('en')}
+              className={cn(
+                'px-1 py-0.5 transition-all',
+                language === 'en'
+                  ? 'text-[#3884ff]'
+                  : scrolled
+                    ? 'text-foreground/70 hover:text-brand'
+                    : 'text-white/75 hover:text-white',
+              )}
+              aria-label="Switch to English"
+            >
+              English
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setLanguage('ar')}
+              className={cn(
+                'px-1 py-0.5 transition-all',
+                language === 'ar'
+                  ? 'text-[#3884ff]'
+                  : scrolled
+                    ? 'text-foreground/70 hover:text-brand'
+                    : 'text-white/75 hover:text-white',
+              )}
+              aria-label="التبديل إلى العربية"
+            >
+              العربية
+            </button>
+
+            <button
+              type="button"
+              onClick={() => setLanguage('ku')}
+              className={cn(
+                'px-1 py-0.5 transition-all',
+                language === 'ku'
+                  ? 'text-[#3884ff]'
+                  : scrolled
+                    ? 'text-foreground/70 hover:text-brand'
+                    : 'text-white/75 hover:text-white',
+              )}
+              aria-label="گۆڕینی زمان بۆ کوردی"
+            >
+              کوردی
+            </button>
+          </div>
         </div>
       </div>
 
