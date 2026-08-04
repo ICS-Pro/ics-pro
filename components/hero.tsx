@@ -130,7 +130,7 @@ export function Hero() {
                   <span className="h-1 w-16 rounded-full bg-gradient-to-r from-[#3884ff] to-transparent sm:w-20" />
                 </div>
 
-                <span className="mt-2 block bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-[28px] text-transparent sm:text-[34px] lg:text-[38px] xl:text-[42px]">
+                <span className="mt-2 block w-full max-w-full px-1 text-center bg-gradient-to-r from-[#7db4ff] to-[#3884ff] bg-clip-text text-[23px] leading-[1.5] text-transparent sm:px-0 sm:text-right sm:text-[34px] sm:leading-[1.3] lg:text-[38px] xl:text-[42px]">
                   بۆ {t.hero.title3}
                 </span>
               </h1>
