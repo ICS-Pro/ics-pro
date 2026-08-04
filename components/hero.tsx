@@ -116,7 +116,7 @@ export function Hero() {
                 className="mx-auto mt-6 w-full max-w-full text-center font-extrabold leading-[1.3] tracking-tight sm:mx-0 sm:text-right"
               >
                 {/* KURDISH FIRST LINE */}
-                <span className="mx-auto block w-full px-1 text-center text-[27px] leading-[1.5] text-white sm:px-0 sm:text-right sm:text-[34px] sm:leading-[1.3] lg:text-[38px] xl:text-[42px]">
+                <span className="mx-auto block w-full whitespace-nowrap px-0 text-center text-[24px] leading-[1.5] text-white sm:px-0 sm:text-right sm:text-[34px] sm:leading-[1.3] lg:text-[38px] xl:text-[42px]">
                   {t.hero.title1}
                 </span>
 
