@@ -13,20 +13,17 @@ export function IcsLogo({
   spin3d = false,
 }: IcsLogoProps) {
   return (
-    <div
-      className={cn(
-        spin3d && 'animate-logo-spin-3d',
-        className
-      )}
-    >
-      <Image
-        src="/logo.png"
-        alt="ICS Pro"
-        width={320}
-        height={90}
-        className="h-auto w-auto max-w-[320px]"
-        priority
-      />
+    <div className={cn('logo-perspective', className)}>
+      <div className={spin3d ? 'animate-logo-spin-3d' : ''}>
+        <Image
+          src="/logo.png"
+          alt="ICS Pro"
+          width={320}
+          height={90}
+          className="h-auto w-auto max-w-[320px]"
+          priority
+        />
+      </div>
     </div>
   )
 }

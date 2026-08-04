@@ -308,3 +308,23 @@
     scroll-behavior: auto;
   }
 }
+/* ICS Pro logo - 3D rotation around vertical axis */
+.logo-perspective {
+  perspective: 1200px;
+}
+
+@keyframes logo-spin-3d {
+  0% {
+    transform: rotateY(0deg);
+  }
+
+  100% {
+    transform: rotateY(360deg);
+  }
+}
+
+.animate-logo-spin-3d {
+  animation: logo-spin-3d 6s linear infinite;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
