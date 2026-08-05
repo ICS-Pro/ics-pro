@@ -320,7 +320,7 @@
 .logo-spinner {
   position: relative;
   transform-style: preserve-3d;
-  animation: logo-spin-3d 6s linear infinite;
+  animation: logo-spin-3d 10s linear infinite;
   will-change: transform;
 }
 
