@@ -300,31 +300,52 @@
     opacity: 1;
     animation: none !important;
   }
+
   .animate-float,
   .animate-blob {
     animation: none !important;
   }
+
   html {
     scroll-behavior: auto;
   }
 }
-/* ICS Pro logo - 3D rotation around vertical axis */
+
+/* ICS Pro - readable 360° 3D rotation */
+
 .logo-perspective {
   perspective: 1200px;
 }
 
+.logo-spinner {
+  position: relative;
+  transform-style: preserve-3d;
+  animation: logo-spin-3d 6s linear infinite;
+  will-change: transform;
+}
+
+.logo-face {
+  display: block;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.logo-front {
+  position: relative;
+}
+
+.logo-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+}
+
 @keyframes logo-spin-3d {
-  0% {
+  from {
     transform: rotateY(0deg);
   }
 
-  100% {
+  to {
     transform: rotateY(360deg);
   }
-}
-
-.animate-logo-spin-3d {
-  animation: logo-spin-3d 6s linear infinite;
-  transform-style: preserve-3d;
-  will-change: transform;
 }
